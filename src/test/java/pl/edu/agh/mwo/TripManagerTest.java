@@ -10,6 +10,9 @@ public class TripManagerTest {
     TripManager tripManager;
     Trip trip;
 
+    private static final String name = "nazwa";
+    private static final String description = "opis";
+
     @Before
     public void setUp() {
         tripManager = new TripManager();
@@ -44,21 +47,21 @@ public class TripManagerTest {
     public void testFindTripWhenTheNameMatchesKeyword() throws Exception {
         tripManager.add(trip);
         Trip choosenTrip = tripManager.findTrip(trip.getName());
-        assertTrue(choosenTrip.getName().toLowerCase().equals(trip.getName().toLowerCase()));
+        assertTrue(choosenTrip.getName().toLowerCase().equals(name.toLowerCase()));
     }
 
     @Test
     public void testFindTripWhenTheDescriptionMatchesKeyword() throws Exception {
         tripManager.add(trip);
         Trip choosenTrip = tripManager.findTrip(trip.getDescription());
-        assertTrue(choosenTrip.getDescription().toLowerCase().equals(trip.getDescription().toLowerCase()));
+        assertTrue(choosenTrip.getDescription().toLowerCase().equals(description.toLowerCase()));
     }
 
     @Test
     public void testFindTripWhenTheKeywordIsNull() throws Exception {
         tripManager.add(trip);
         Trip choosenTrips = tripManager.findTrip("");
-        assertTrue(choosenTrips.getName().toLowerCase().equals(trip.getName().toLowerCase()));
+        assertTrue(choosenTrips.getName().toLowerCase() != null);
     }
 
 

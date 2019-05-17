@@ -4,6 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 public class TripManagerTest {
@@ -21,7 +22,7 @@ public class TripManagerTest {
     }
 
     @Test
-    public void testAdd() throws TripAlreadyExistsException {
+    public void testAddTrip() throws TripAlreadyExistsException {
         assertEquals(0, tripManager.getTrips().size());
         tripManager.add(trip);
         assertEquals(1, tripManager.getTrips().size());
@@ -61,7 +62,14 @@ public class TripManagerTest {
     @Test
     public void testFindTripWhenTheKeywordIsNull() throws Exception {
         tripManager.add(trip);
-        Trip choosenTrips = tripManager.findTrip("");
-        assertTrue(choosenTrips.getName().toLowerCase() != null);
+        Trip choosenTrip = tripManager.findTrip("");
+        assertTrue(choosenTrip.getName().toLowerCase() != null);
+    }
+
+    @Test
+    public void testFindTripIsNullWhenKeywordDoNotMatch() throws NullPointerException, TripAlreadyExistsException {
+        tripManager.add(trip);
+        Trip choosenTrip = tripManager.findTrip("Las Vegas");
+        assertNull(choosenTrip);
     }
 }

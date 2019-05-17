@@ -7,7 +7,6 @@ public class Trip {
     private String name;
     private String description;
     List<Photo> photos = new ArrayList<Photo>();
-    List<String> tripPhotosComments = new ArrayList<String>();
 
     public Trip(String name, String description) {
         this.name = name;
@@ -38,10 +37,4 @@ public class Trip {
         return photos;
     }
 
-    public List<String> getTripPhotosComments(Trip trip) {
-        for (Photo photo : trip.getPhotos()) {
-            tripPhotosComments.add(photo.getComment());
-        }
-        return tripPhotosComments;
-    }
 }

@@ -3,7 +3,8 @@ package pl.edu.agh.mwo;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class TripManagerTest {
 
@@ -63,6 +64,4 @@ public class TripManagerTest {
         Trip choosenTrips = tripManager.findTrip("");
         assertTrue(choosenTrips.getName().toLowerCase() != null);
     }
-
-
 }
